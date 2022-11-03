@@ -1,6 +1,6 @@
 {
   "name": "@jb_fmanager/express",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "jb file manager endpoint setup for express",
   "repository": "jbystronski/jb-fmanager-express",
   "main": "index.js",
