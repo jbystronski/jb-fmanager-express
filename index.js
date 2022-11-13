@@ -1,6 +1,9 @@
 const fm = require("@jb_fmanager/node-utils");
 
-module.exports = (app, { prefix = "/", errorHandler, maxUploadSize }) => {
+module.exports = (
+  app,
+  { prefix = "/", root = "public", errorHandler, maxUploadSize }
+) => {
   const wrapAsync = async (fn, res, next, ...args) => {
     try {
       const result = await fn(...args);
@@ -12,8 +15,7 @@ module.exports = (app, { prefix = "/", errorHandler, maxUploadSize }) => {
 
   app.get(
     prefix + "/map",
-    async ({ query }, res, next) =>
-      await wrapAsync(fm.map, res, next, query.path)
+    async ({ query }, res, next) => await wrapAsync(fm.map, res, next, root)
   );
 
   app.get(
